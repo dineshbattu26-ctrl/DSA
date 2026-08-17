@@ -7,7 +7,7 @@ class Main{
 
 
     public static void main(String[] args){
-        printitems(10);
+        printitems(20);
     }
 }
     
