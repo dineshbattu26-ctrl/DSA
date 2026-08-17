@@ -1,4 +1,4 @@
-class Big0{
+class Bigo{
     public static void printitems(int n){
         for(int i=0;i<n;i++){
             System.out.println(i);
