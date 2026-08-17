@@ -7,7 +7,7 @@ class Big0{
 
 
     public static void main(String[] args){
-        printitems(20);
+        printitems(10);
     }
 }
     
