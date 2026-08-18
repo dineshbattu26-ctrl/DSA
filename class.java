@@ -12,5 +12,5 @@ class Class{
 public static void main(String[] args) {
  Class s1 = new Class("Dinesh",19);
     s1.display();
-    }
+}
 }
