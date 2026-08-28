@@ -63,20 +63,20 @@ public class Linked {
             
         }
 
-        if(length == 1){
+            tail = pre;
+            tail.next = null;
+            length--;
+
+
+        if(length == 0){
             head = null;
             tail = null;
         }
-        else{
-            tail = pre;
-            tail.next = null;
-
-        }
-        length--;
-
         return temp;
+        
 
     }
+    
 
     public void printlist(){
         Node current;
