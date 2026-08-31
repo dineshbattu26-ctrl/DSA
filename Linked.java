@@ -76,13 +76,107 @@ public class Linked {
         
 
     }
-    
 
+    public Node RemoveFirst(){
+        if(length == 0){
+            return null;
+        }
+        Node temp = head;
+        head = head.next;
+        temp.next = null;
+        length--;
+        
+        if(length == 1){
+            tail = null;
+            length --;
+        }
+
+        return temp;
+    }
+
+    public Node Get(int index){
+        if(index<0 ||index>=length){
+            return null;
+        }
+        Node temp = head;
+        for(int i = 0; i<index; i++){
+            temp = temp.next;
+        }
+        return temp;
+    }
+
+    public Boolean Set(int index , int value){
+        Node temp = Get(index);
+        if(temp != null){
+            temp.value = value;
+            return true;
+        }
+        return null;
+
+    }
+
+    public Boolean insert(int index, int value){
+         Node newnode = new Node(value);
+        
+        if(index<0 || index>length){
+            return null;
+        }
+        if(index == 0){
+            prepend(value);
+            return true;
+
+        }
+        if(index == length){
+            append(value);
+            return true;
+
+        }
+        Node temp = Get(index-1);
+        newnode.next = temp.next;
+        temp.next = newnode;
+        length++;
+        return true;
+       
+    }
+    public Node remove(int index){
+        if(index < 0|| index >= length){
+            return null;
+        }
+        if(index ==0){
+           return RemoveFirst();
+
+        }
+        if(index == length-1){
+            return removeLast();
+                
+        }
+          Node pre = Get(index - 1);
+          Node temp = pre.next;
+          pre.next = temp.next;
+          temp.next = null;
+          length--;
+          return temp;
+
+        }
+    public void Reverse(){
+        Node temp = head;
+        head = tail;
+        tail = temp;
+        Node after = temp.next;
+        Node before = null;
+        for(int i = 0; i<length; i++){
+            after = temp.next;
+            temp.next = before;
+            before = temp;
+            temp = after;
+        }
+    }
+        
     public void printlist(){
         Node current;
         current = head;
         while(current != null){
-            System.out.print(current.value);
+            System.out.println(current.value);
             current = current.next;
 
         }
