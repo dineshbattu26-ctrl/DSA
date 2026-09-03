@@ -60,6 +60,40 @@ public class Linkedloops {
             return slow;
         }
 
+        public boolean hasLoop(){
+            Node fast = head;
+            Node slow = head;
+            while(fast != null && fast.next != null){
+                slow = slow.next;
+                fast = fast.next.next;
+
+            if(fast == slow){
+                return true;
+            }
+            }
+            return false;
+
+        }
+
+        public Node kthfromend(int k){
+            Node fast = head;
+            Node slow = head;
+            for(int i = 0; i < k; i++){
+                if(fast == null){
+                   return null;
+                }
+                fast = fast.next;
+            }
+            while(fast != null){
+
+                fast = fast.next;
+                slow = slow.next;
+            }
+            return slow;
+
+
+        }
+
         
     
     
@@ -83,7 +117,23 @@ public class Linkedloops {
          System.out.println("\nMiddle value of linked list is:"+middle.value);
 
 
+         
+        Node k = mylist.kthfromend(3);
+
+        System.out.println("\n3rd node from end is: " + k.value);
+
+
+
+         mylist.tail.next = mylist.head;
+         boolean loop = mylist.hasLoop();
+         System.out.println("\nlinked list has loop:" +loop);
 
 
         }
 }
+
+
+
+
+
+
