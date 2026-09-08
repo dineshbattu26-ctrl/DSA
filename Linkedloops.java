@@ -94,6 +94,28 @@ public class Linkedloops {
 
         }
 
+    public void removeDuplicates(){
+        Node current = head;
+
+        while (current != null){
+            Node previous = current;
+            Node runner = current.next;
+
+            while(runner != null){
+
+                if(current.value == runner.value){
+                    previous.next = runner.next;
+                    runner = previous.next;
+                }else{
+                    previous = runner;
+                    runner = runner.next;
+                }
+            }
+            current = current.next;
+        }
+
+    }
+
         
     
     
@@ -109,9 +131,18 @@ public class Linkedloops {
          mylist.append(40);
          mylist.append(50);
          mylist.append(60);
+         mylist.append(20);
+         mylist.append(30);
 
          System.out.println("\nlinked list is:");
          mylist.Printlist();
+
+        mylist.removeDuplicates();
+         System.out.println("\n linked list after :");
+         mylist.Printlist();
+
+
+
 
          Linkedloops.Node  middle = mylist.Middleoflist();
          System.out.println("\nMiddle value of linked list is:"+middle.value);
@@ -128,6 +159,8 @@ public class Linkedloops {
          boolean loop = mylist.hasLoop();
          System.out.println("\nlinked list has loop:" +loop);
 
+
+        
 
         }
 }

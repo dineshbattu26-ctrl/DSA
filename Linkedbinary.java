@@ -95,6 +95,31 @@ public class Linkedbinary {
 
             }
         
+            public void swappair(){
+                Node dummy = new Node(0);
+                dummy.next = head;
+                Node first = head;
+                Node prev = dummy;
+
+                while(first != null && first.next != null){
+                    Node second = first.next;
+
+                    prev.next = second;
+                    first.next = second.next;
+                    second.next = first;
+
+                    prev= first;
+                    first = prev.next;
+
+                    if(first != null){
+
+                        second = first.next;
+                    }
+
+                }
+
+                head = dummy.next;
+            }
 
 
     
@@ -142,6 +167,19 @@ public class Linkedbinary {
 
         System.out.println("\n linked list after partitioning around 7:");
         mylist.partitionList(7);
+        mylist.printlist();
+
+
+        mylist  = new Linkedbinary(1);
+        mylist.append(7);
+        mylist.append(3);
+        mylist.append(8);
+        mylist.append(3);
+        mylist.append(5);
+        System.out.println("\n Linked before swapping pairs:");
+        mylist.printlist();
+        mylist.swappair();
+        System.out.println("\n Linked after swapping pairs:");
         mylist.printlist();
 
 
