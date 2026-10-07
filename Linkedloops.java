@@ -99,16 +99,16 @@ public class Linkedloops {
 
         while (current != null){
             Node previous = current;
-            Node runner = current.next;
+            Node temp = current.next;
 
-            while(runner != null){
+            while(temp != null){
 
-                if(current.value == runner.value){
-                    previous.next = runner.next;
-                    runner = previous.next;
+                if(current.value == temp.value){
+                    previous.next = temp.next;
+                    temp = previous.next;
                 }else{
-                    previous = runner;
-                    runner = runner.next;
+                    previous = temp;
+                    temp = temp.next;
                 }
             }
             current = current.next;
