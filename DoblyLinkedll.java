@@ -114,6 +114,53 @@ public class Node{
         }
     }
 
+    public void swapPair(){
+
+        Node dummy = new Node(0);
+        dummy.next = head;
+
+        Node prev = dummy;
+
+        Node first = head;
+        while(first != null && first.next != null){
+            Node second = first.next;
+
+            prev.next = second;
+
+            first.next = second.next;
+            first.prev = second;
+            if(second.next != null){
+
+                second.next.prev = first;
+
+            }
+            second.next = first;
+            second.prev = prev;
+
+
+            if(first != null && first.next != null){
+                first = first.next;
+                prev = first.prev;
+            }
+        }
+
+            head = dummy.next;
+
+            if(head != null){
+                head.prev = null;
+            }
+        }
+        
+
+
+
+
+
+
+
+        
+    
+
 
 
 
@@ -129,7 +176,8 @@ public class Node{
                 System.out.println(temp.value);
                 temp = temp.next;
                }
-    }
+            }
+    
 
     public static void main(String[] args){
         DoblyLinkedll newlist;
@@ -156,8 +204,19 @@ public class Node{
         System.out.println("After reversing between index 1 and 3");
         newlist.printlist();
 
-    }
 
+        newlist = new DoblyLinkedll(0);
+        newlist.append(1);
+        newlist.append(2);
+        newlist.append(3);
+        newlist.swapPair();
+        newlist.printlist();
+
+
+    
+
+
+    }
 }
 
 
